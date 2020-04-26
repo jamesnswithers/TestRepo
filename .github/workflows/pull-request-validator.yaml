@@ -10,5 +10,5 @@ jobs:
     steps:
       # Drafts your next Release notes as Pull Requests are merged into "master"
       - uses: pr-lint-action@master
-      with:
-        title-regex: '^(OCTANE-US\d*).*'
+        with:
+          title-regex: '^(OCTANE-US\d*).*'
