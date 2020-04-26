@@ -3,9 +3,6 @@ name: Pull Request Validation Workflow
 on:
   pull_request:
     types: ['opened', 'edited', 'reopened', 'synchronize']
-    # branches to consider in the event; optional, defaults to all
-    #branches:
-     # - master
 
 jobs:
   pr_lint:
@@ -15,5 +12,3 @@ jobs:
       - uses: pr-lint-action@master
       with:
         title-regex: '^(OCTANE-US\d*).*'
-        #env:
-          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
