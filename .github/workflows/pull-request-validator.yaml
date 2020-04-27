@@ -11,5 +11,13 @@ jobs:
       # Drafts your next Release notes as Pull Requests are merged into "master"
       - uses: jamesnswithers/pr-lint-action@master
         with:
-          title-regex: '^(OCTANE-US\d*).*'
+          title-regexs: |
+            ^(OCTANE-US\d*).*
+            ^(OCTANE-QS\d*).
+            ^(OCTANE-DE\d*).*'
+          failure-message: |
+            Pull Request Validation Failed. The pull request title should be amended to the below patterns
+            'OCTANE-US12345 An optional small summary title'
+            'OCTANE-QS12345 An optional small summary title'
+            'OCTANE-DS12345 An optional small summary title'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
