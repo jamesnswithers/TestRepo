@@ -14,7 +14,7 @@ jobs:
           title-regexs: |
             ^(OCTANE-US\d*).*
             ^(OCTANE-QS\d*).
-            ^(OCTANE-DE\d*).*'
+            ^(OCTANE-DE\d*).*
           failure-message: |
             Pull Request Validation Failed. The pull request title should be amended to the below patterns
             'OCTANE-US12345 An optional small summary title'
