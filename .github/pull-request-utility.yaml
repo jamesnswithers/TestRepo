@@ -1,0 +1,16 @@
+name: Pull Request Validation Workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: ['opened', 'edited', 'reopened', 'synchronize']
+
+jobs:
+  pr_lint:
+    runs-on: ubuntu-latest
+    steps:
+      # Drafts your next Release notes as Pull Requests are merged into "master"
+      - uses: jamesnswithers/pull-request-validator-action@master
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
