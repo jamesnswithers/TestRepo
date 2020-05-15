@@ -23,5 +23,5 @@ checks:
       * `OCTANE-US/QS/DE12345 An optional small summary title`
       * `Revert "OCTANE-US/QS/DE12345 An optional small summary title"`
 
-  codeowner: codeowner
+  codeowner:
     enforce-multiple: true
