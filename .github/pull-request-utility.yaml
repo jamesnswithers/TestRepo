@@ -1,16 +1,27 @@
-name: Pull Request Validation Workflow
+checks:
 
-on:
-  pull_request:
-    branches:
-      - master
-    types: ['opened', 'edited', 'reopened', 'synchronize']
+  title-fixer:
+    enforce-check: false
+    fixes:
+      - replace: Octane\s+us
+        with: OCTANE-US
+      - replace: Octane\s+qs
+        with: OCTANE-QS
+      - replace: Octane\s+de
+        with: OCTANE-DE
 
-jobs:
-  pr_lint:
-    runs-on: ubuntu-latest
-    steps:
-      # Drafts your next Release notes as Pull Requests are merged into "master"
-      - uses: jamesnswithers/pull-request-validator-action@master
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  title-validator:
+    matches:
+      - ^(OCTANE-US\d+).*
+      - ^(OCTANE-QS\d+).*
+      - ^(OCTANE-DE\d+).*
+      - ^Revert\s"(OCTANE-US\d+).*"
+      - ^Revert\s"(OCTANE-DE\d+).*"
+      - ^Revert\s"(OCTANE-QS\d+).*"
+    failure-message: |2
+      Pull Request Validation Failed. The pull request title should follow the below case-sensitive patterns
+      * `OCTANE-US/QS/DE12345 An optional small summary title`
+      * `Revert "OCTANE-US/QS/DE12345 An optional small summary title"`
+
+  codeowner: codeowner
+    enforce-multiple: true
