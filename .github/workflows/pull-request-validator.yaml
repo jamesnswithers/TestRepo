@@ -8,6 +8,7 @@ on:
   pull_request_review:
     branches:
       - master
+    types: ['submitted', 'edited', 'dismissed']
 
 jobs:
   pr_lint:
